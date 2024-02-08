@@ -2,10 +2,10 @@
 	- [ ] Cell management
 		- [ ] Creating cells **PUT** */cells/{id}*
 		- [ ] Reading cells **GET** */cells/{id}*
-			- [ ] Reading plain values
+			- [x] Reading plain values
 			- [ ] Executing formulae & reading result
 		- [ ] Deleting cells **DELETE** */cells/{id}*
-		- [ ] Listing cells **GET** */cells*
+		- [x] Listing cells **GET** */cells*
 	- [ ] Cell formulae
 		- [ ] $+$
 		- [ ] $-$
@@ -24,3 +24,6 @@
 		- [ ] Cells stored
 		- [ ] Cells retrieved
 		- [ ] Cells deleted
+- [ ] **Final testing**
+	- [ ] test10.sh
+	- [ ] My own tests
