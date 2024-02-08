@@ -1,0 +1,26 @@
+- [ ] **Part 1: On-premises storage**
+	- [ ] Cell management
+		- [ ] Creating cells **PUT** */cells/{id}*
+		- [ ] Reading cells **GET** */cells/{id}*
+			- [ ] Reading plain values
+			- [ ] Executing formulae & reading result
+		- [ ] Deleting cells **DELETE** */cells/{id}*
+		- [ ] Listing cells **GET** */cells*
+	- [ ] Cell formulae
+		- [ ] $+$
+		- [ ] $-$
+		- [ ] $\times$
+		- [ ] $/$
+		- [ ] Parenthesis for grouping
+	- [ ] Sqlite3 database
+		- [ ] Write `-r sqlite` flag logic
+		- [ ] Cells stored
+		- [ ] Cells retrieved
+		- [ ] Cells deleted
+- [ ] **Part 2: Cloud storage**
+	- [ ] Firebase
+		- [ ] Get server up and running
+		- [ ] Write `-r firebase` flag logic
+		- [ ] Cells stored
+		- [ ] Cells retrieved
+		- [ ] Cells deleted
