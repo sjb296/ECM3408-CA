@@ -1,10 +1,14 @@
 - [ ] **Part 1: On-premises storage**
 	- [ ] Cell management
 		- [ ] Creating cells **PUT** */cells/{id}*
+			- [ ] Fully tested
 		- [ ] Reading cells **GET** */cells/{id}*
 			- [x] Reading plain values
 			- [ ] Executing formulae & reading result
+			- [ ] Fully tested
 		- [ ] Deleting cells **DELETE** */cells/{id}*
+			- [x] Basic functionality
+			- [ ] Fully tested
 		- [x] Listing cells **GET** */cells*
 	- [ ] Cell formulae
 		- [ ] $+$
