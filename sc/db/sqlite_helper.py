@@ -14,27 +14,32 @@ def get_db():
     return db
 
 
-# @app.teardown_appcontext
 def close_connection(exception):
     db = getattr(g, "_database", None)
     if db is not None:
         db.close()
 
 
-# @app.route("/")
 def hello_world():
     return "Hello, world!"
 
 
-# @app.route("/cells")
 def list_cells():
+    """Return a JSON list containing the coordinates of all cells#
+    that have data in them"
+
+    e.g. `["B1, "C6", ...]`
+    """
     cur = get_db().cursor()
     cur.execute("SELECT * FROM cells;")
     return [cell[0] for cell in cur.fetchall()]
 
 
-# @app.route("/cells/<id>", methods=["GET"])
 def get_cell(id=None):
+    """Given the label of a cell, return a JSON object containing
+    the label and the data stored in the cell
+
+    e.g. `{"B1", "6"}`"""
     cur = get_db().cursor()
     cur.execute("SELECT * FROM cells WHERE id=?", (id,))
     cell = cur.fetchone()
@@ -44,8 +49,9 @@ def get_cell(id=None):
         return "", 404
 
 
-# @app.route("/cells/<id>", methods=["PUT"])
 def create_cell(id=None):
+    """Create a cell with the given label and data. If it
+    already exists, update it(?)"""
     json = request.get_json()
 
     if json["id"] != id:
@@ -71,8 +77,8 @@ def create_cell(id=None):
         return "", 500
 
 
-# @app.route("/cells/<id>", methods=["DELETE"])
 def delete_cell(id=None):
+    """Delete a cell with a given label."""
     db = get_db()
     cur = db.cursor()
 
