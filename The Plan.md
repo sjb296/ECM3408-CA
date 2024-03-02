@@ -6,7 +6,7 @@
 				- [ ] Create a valid cell with a plain value
 				- [ ] Create a valid cell with a valid formula based on a plain value cell e.g. B3 + 1
 				- [ ] Create a valid cell with a valid formula based on two plain value cells e.g. B3 + B4
-				- [ ] Change the value in a cell, then 
+				- [ ] Change the value in a cell, then re eval
 		- [ ] Reading cells **GET** */cells/{id}*
 			- [x] Reading plain values
 			- [ ] Executing formulae & reading result
@@ -18,23 +18,24 @@
 			- [x] Basic functionality
 			- [ ] Fully tested
 	- [ ] Cell formulae
-		- [ ] $+$
-		- [ ] $-$
-		- [ ] $\times$
-		- [ ] $/$
+		- [x] $+$
+		- [x] $-$
+		- [x] $\times$
+		- [x] $/$
 		- [ ] Parenthesis for grouping
-	- [ ] Sqlite3 database
-		- [ ] Write `-r sqlite` flag logic
-		- [ ] Cells stored
-		- [ ] Cells retrieved
-		- [ ] Cells deleted
+	- [x] Sqlite3 database
+		- [x] Write `-r sqlite` flag logic
+		- [x] Cells stored
+		- [x] Cells retrieved
+		- [x] Cells deleted
 - [ ] **Part 2: Cloud storage**
-	- [ ] Firebase
-		- [ ] Get server up and running
-		- [ ] Write `-r firebase` flag logic
-		- [ ] Cells stored
-		- [ ] Cells retrieved
-		- [ ] Cells deleted
+	- [x] Firebase
+		- [x] Get server up and running
+		- [x] Write `-r firebase` flag logic
+		- [x] Cells stored
+		- [x] Cells retrieved
+		- [x] Cells deleted
+	- [ ] Full test suite
 - [ ] **Final testing**
 	- [ ] test10.sh
 	- [ ] My own tests

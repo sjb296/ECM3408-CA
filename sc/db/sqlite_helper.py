@@ -2,7 +2,7 @@ import sqlite3
 import sys
 from flask import Flask, g, request
 
-from formula.formula import run_formula, valid_formula
+from formula.formula import eval_formula, valid_formula
 
 DATABASE = "database.db"
 
