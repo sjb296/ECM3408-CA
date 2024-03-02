@@ -44,7 +44,7 @@ def get_cell(id=None):
     cur.execute("SELECT * FROM cells WHERE id=?", (id,))
     cell = cur.fetchone()
     if cell:
-        return {"id": cell[0], "formula": run_formula(cell[1])}
+        return {"id": cell[0], "formula": eval_formula(cell[1])}
     else:
         return "", 404
 

@@ -28,11 +28,20 @@ def get_cell(id):
     e.g. `{"B1", "6"}`"""
     params = f'?orderBy="$key"&startAt="{id}"&limitToFirst=1'
     res = requests.get(URL + ".json" + params)
+    formula = list(res.json().values())[0]
+
     print(res.json())
+
     if res.json() == None:
         return "", 404
     elif res.ok:
-        return res.json()
+        print(res.json())
+        if valid_formula(formula):
+            formula_result = eval_formula(formula)
+        else:
+            return "", 500
+
+        return {id: formula_result}
     else:
         return "", 500
 

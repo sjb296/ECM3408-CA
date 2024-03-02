@@ -1,5 +1,7 @@
 import re
 
+import db.db as db
+
 NUM = re.compile(r"^[0-9]+$")
 CELL = re.compile(r"^[a-zA-Z]+[0-9]+$")
 ARITHMETIC = re.compile(r"^[a-zA-Z]*[0-9]+ *[\*\+\-\/] *[a-zA-Z]*[0-9]+$")
@@ -11,7 +13,7 @@ def eval_formula(formula):
         if NUM.match(formula):
             return int(formula)
         elif CELL.match(formula):
-            return get_cell(formula)
+            return db.get_cell(formula)
         elif ARITHMETIC.match(formula):
             return eval_arithmetic(formula)
     return "Invalid formula"
@@ -25,11 +27,11 @@ def eval_arithmetic(formula):
 
     # Separate out the operands
     if CELL.match(operands[0]):
-        operands[0] = get_cell(operands[0])
+        operands[0] = db.get_cell(operands[0])
     elif NUM.match(operands[0]):
         operands[0] = int(operands[0])
     if CELL.match(operands[1]):
-        operands[1] = get_cell(operands[1])
+        operands[1] = db.get_cell(operands[1])
     elif NUM.match(operands[1]):
         operands[1] = int(operands[1])
 
@@ -51,5 +53,5 @@ def valid_formula(formula):
     return False
 
 
-# def get_cell(cell):  # dummy
+# def db.get_cell(cell):  # dummy
 #    return 2
