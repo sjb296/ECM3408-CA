@@ -9,6 +9,7 @@ ARITHMETIC = re.compile(r"^[a-zA-Z]*[0-9]+ *[\*\+\-\/] *[a-zA-Z]*[0-9]+$")
 
 def eval_formula(formula):
     """Returns the result of the formula."""
+    print(f"Evaluating formula: {formula}")
     if valid_formula(formula):
         if NUM.match(formula):
             return int(formula)
@@ -24,19 +25,21 @@ def eval_arithmetic(formula):
     operator = re.search(r"[\*\+\-\/]", formula).group()
     operands = formula.split(operator)
     operands = [operand.strip() for operand in operands]  # remove ws
+    print(f"Operands: {operands}")
 
     # Separate out the operands
     if CELL.match(operands[0]):
-        operands[0] = db.get_cell(operands[0])
+        operands[0] = list(db.get_cell(operands[0]).values())[0]  # Unpack JSON
     elif NUM.match(operands[0]):
         operands[0] = int(operands[0])
     if CELL.match(operands[1]):
-        operands[1] = db.get_cell(operands[1])
+        operands[1] = list(db.get_cell(operands[1]).values())[0]  # Unpack JSON
     elif NUM.match(operands[1]):
         operands[1] = int(operands[1])
 
     # Perform the operation
     if operator == "+":
+        print(f"Adding {operands[0]} and {operands[1]}")
         return int(operands[0]) + int(operands[1])
     elif operator == "-":
         return int(operands[0]) - int(operands[1])

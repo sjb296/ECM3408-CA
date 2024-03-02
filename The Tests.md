@@ -1,0 +1,6 @@
+- [ ] On my machine
+	- [ ] Sqlite
+	- [ ] Firebase
+- [ ] On the Blue machines
+	- [ ] Sqlite
+	- [ ] Firebase

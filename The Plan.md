@@ -2,14 +2,14 @@
 	- [ ] Cell management
 		- [ ] Creating cells **PUT** */cells/{id}*
 			- [x] Basic functionality
-			- [ ] Fully tested
-				- [ ] Create a valid cell with a plain value
-				- [ ] Create a valid cell with a valid formula based on a plain value cell e.g. B3 + 1
-				- [ ] Create a valid cell with a valid formula based on two plain value cells e.g. B3 + B4
-				- [ ] Change the value in a cell, then re eval
+			- [x] Fully tested
+				- [x] Create a valid cell with a plain value
+				- [x] Create a valid cell with a valid formula based on a plain value cell e.g. B3 + 1
+				- [x] Create a valid cell with a valid formula based on two plain value cells e.g. B3 + B4
+				- [x] Change the value in a cell, then re eval
 		- [ ] Reading cells **GET** */cells/{id}*
 			- [x] Reading plain values
-			- [ ] Executing formulae & reading result
+			- [x] Executing formulae & reading result
 			- [ ] Fully tested
 		- [ ] Deleting cells **DELETE** */cells/{id}*
 			- [x] Basic functionality
@@ -36,7 +36,3 @@
 		- [x] Cells retrieved
 		- [x] Cells deleted
 	- [ ] Full test suite
-- [ ] **Final testing**
-	- [ ] test10.sh
-	- [ ] My own tests
-	- [ ] Tests on the blue remote machine

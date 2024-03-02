@@ -35,7 +35,7 @@ def get_cell(id):
     if res.json() == None:
         return "", 404
     elif res.ok:
-        print(res.json())
+        print(f"Formula {formula}")
         if valid_formula(formula):
             formula_result = eval_formula(formula)
         else:
