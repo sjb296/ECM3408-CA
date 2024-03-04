@@ -9,7 +9,7 @@ ARITHMETIC = re.compile(r"^[a-zA-Z]*[0-9]+ *[\*\+\-\/] *[a-zA-Z]*[0-9]+$")
 
 def eval_formula(formula):
     """Returns the result of the formula."""
-    print(f"Evaluating formula: {formula}")
+    # print(f"Evaluating formula: {formula}")
     if valid_formula(formula):
         if NUM.match(formula):
             return int(formula)
@@ -25,7 +25,7 @@ def eval_arithmetic(formula):
     operator = re.search(r"[\*\+\-\/]", formula).group()
     operands = formula.split(operator)
     operands = [operand.strip() for operand in operands]  # remove ws
-    print(f"Operands: {operands}")
+    # print(f"Operands: {operands}")
 
     # Separate out the operands
     if CELL.match(operands[0]):
@@ -39,7 +39,7 @@ def eval_arithmetic(formula):
 
     # Perform the operation
     if operator == "+":
-        print(f"Adding {operands[0]} and {operands[1]}")
+        # print(f"Adding {operands[0]} and {operands[1]}")
         return int(operands[0]) + int(operands[1])
     elif operator == "-":
         return int(operands[0]) - int(operands[1])

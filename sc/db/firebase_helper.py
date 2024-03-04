@@ -16,46 +16,69 @@ def list_cells():
     """
     res = requests.get(URL + ".json")
     if res.ok:
-        return res.json()
+        if res.json() == None:
+            return [], 200
+        else:
+            return res.json()
     else:
         return "", 500
 
 
 def get_cell(id):
     """Given the label of a cell, return a JSON object containing
-    the label and the data stored in the cell
+    the data stored in the cell
 
-    e.g. `{"B1", "6"}`"""
+    e.g. `{"formula", "6"}`"""
     params = f'?orderBy="$key"&startAt="{id}"&limitToFirst=1'
     res = requests.get(URL + ".json" + params)
     formula = list(res.json().values())[0]
 
-    print(res.json())
+    # print(res.json())
 
     if res.json() == None:
         return "", 404
     elif res.ok:
-        print(f"Formula {formula}")
+        # print(f"Formula {formula}")
         if valid_formula(formula):
             formula_result = eval_formula(formula)
         else:
             return "", 500
 
-        return {id: formula_result}
+        return {"formula": f"{formula_result}"}
     else:
         return "", 500
 
 
-def create_cell(id):
+def create_cell(id=None):
     """Create a cell with the given label and data. If it
     already exists, update it"""
     req_json = request.get_json()
+
+    # Check both fields are present and valid
+    if "id" not in req_json or "formula" not in req_json:
+        return "", 400
+
+    if req_json["id"] != id:
+        return "", 400
+    elif not req_json["formula"] or not valid_formula(req_json["formula"]):
+        return "", 400
+
+    # Check if the record exists
+    params = f'?orderBy="$key"&startAt="{id}"&limitToFirst=1'
+    exists = requests.get(URL + ".json" + params)
+    if exists.ok and exists.json() != None:
+        updated = True
+    else:
+        updated = False
 
     res = requests.patch(
         URL + ".json", f'{{ "{req_json["id"]}": "{req_json["formula"]}" }}'
     )
     if res.ok:
-        return "", 201
+        if updated:
+            return "", 204
+        else:
+            return "", 201
     else:
         print(res.json())
         return "", 500
