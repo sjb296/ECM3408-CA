@@ -55,7 +55,7 @@ def create_cell(id):
         URL + ".json", f'{{ "{req_json["id"]}": "{req_json["formula"]}" }}'
     )
     if res.ok:
-        return res.json()
+        return "", 201
     else:
         print(res.json())
         return "", 500

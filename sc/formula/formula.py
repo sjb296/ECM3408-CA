@@ -14,7 +14,7 @@ def eval_formula(formula):
         if NUM.match(formula):
             return int(formula)
         elif CELL.match(formula):
-            return db.get_cell(formula)
+            return list(db.get_cell(formula).values())[0]  # Unpack JSON
         elif ARITHMETIC.match(formula):
             return eval_arithmetic(formula)
     return "Invalid formula"
