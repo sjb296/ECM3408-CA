@@ -1,13 +1,11 @@
 import re
 
-import db.db as db
-
 NUM = re.compile(r"^[0-9]+$")
 CELL = re.compile(r"^[a-zA-Z]+[0-9]+$")
 ARITHMETIC = re.compile(r"^[a-zA-Z]*[0-9]+ *[\*\+\-\/] *[a-zA-Z]*[0-9]+$")
 
 
-def eval_formula(formula):
+def eval_formula(db, formula):
     """Returns the result of the formula."""
     # print(f"Evaluating formula: {formula}")
     if valid_formula(formula):
@@ -16,11 +14,11 @@ def eval_formula(formula):
         elif CELL.match(formula):
             return list(db.get_cell(formula).values())[0]  # Unpack JSON
         elif ARITHMETIC.match(formula):
-            return eval_arithmetic(formula)
+            return eval_arithmetic(db, formula)
     return "Invalid formula"
 
 
-def eval_arithmetic(formula):
+def eval_arithmetic(db, formula):
     """Returns the result of the arithmetic formula."""
     operator = re.search(r"[\*\+\-\/]", formula).group()
     operands = formula.split(operator)
