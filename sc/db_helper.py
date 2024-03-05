@@ -33,9 +33,9 @@ class SqliteHelper:
         cur.execute("SELECT * FROM cells;")
         cells = [{cell[0]: cell[1]} for cell in cur.fetchall()]
         if cells:
-            return cells
+            return f"{cells}"
         else:
-            return make_response([], 200)
+            return "[]", 200
 
     def get_cell(self, id=None):
         """Given the label of a cell, return a JSON object containing
@@ -127,9 +127,9 @@ class FirebaseHelper:
         res = requests.get(self.URL + ".json")
         if res.ok:
             if res.json() == None:
-                return make_response("[]", 200)
+                return "[]", 200
             else:
-                return res.json()
+                return f"{res.json()}"
         else:
             return "", 500
 

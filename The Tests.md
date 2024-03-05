@@ -26,25 +26,25 @@
 
 - [ ] On the Blue machines
 	- [ ] Sqlite
-		- [ ] test10.sh
-			- [ ] 1
+		- [x] test10.sh
+			- [x] 1
 			- [x] 2
 			- [x] 3
 			- [x] 4
 			- [x] 5
-			- [ ] 6
+			- [x] 6
 			- [x] 7
 			- [x] 8
 			- [x] 9
-			- [ ] 10
+			- [x] 10
 	- [ ] Firebase
-		- [ ] test10.sh
-			- [ ] 1
+		- [x] test10.sh
+			- [x] 1
 			- [x] 2
 			- [x] 3
 			- [x] 4
 			- [x] 5
-			- [ ] 6
+			- [x] 6
 			- [x] 7
 			- [x] 8
 			- [x] 9
