@@ -17,7 +17,7 @@ def list_cells():
     res = requests.get(URL + ".json")
     if res.ok:
         if res.json() == None:
-            return [], 200
+            return "", 200
         else:
             return res.json()
     else:

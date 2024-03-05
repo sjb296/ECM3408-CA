@@ -32,7 +32,11 @@ def list_cells():
     """
     cur = get_db().cursor()
     cur.execute("SELECT * FROM cells;")
-    return [{cell[0]: cell[1]} for cell in cur.fetchall()]
+    cells = [{cell[0]: cell[1]} for cell in cur.fetchall()]
+    if cells:
+        return cells
+    else:
+        return "", 200
 
 
 def get_cell(id=None):
