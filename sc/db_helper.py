@@ -31,7 +31,7 @@ class SqliteHelper:
         """
         cur = self.get_db().cursor()
         cur.execute("SELECT * FROM cells;")
-        cells = [{cell[0]: cell[1]} for cell in cur.fetchall()]
+        cells = [cell[0] for cell in cur.fetchall()]
         if cells:
             return f"{cells}"
         else:
@@ -129,7 +129,8 @@ class FirebaseHelper:
             if res.json() == None:
                 return "[]", 200
             else:
-                return f"{res.json()}"
+                result = list(res.json().keys())
+                return f"{result}"
         else:
             return "", 500
 
