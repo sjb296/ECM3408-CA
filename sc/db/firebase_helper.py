@@ -1,6 +1,6 @@
 import requests
 import os
-from flask import request
+from flask import request, make_response
 
 from formula.formula import eval_formula, valid_formula
 
@@ -17,7 +17,7 @@ def list_cells():
     res = requests.get(URL + ".json")
     if res.ok:
         if res.json() == None:
-            return "", 200
+            return make_response([], 200)
         else:
             return res.json()
     else:

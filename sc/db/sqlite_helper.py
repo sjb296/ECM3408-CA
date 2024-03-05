@@ -1,6 +1,6 @@
 import sqlite3
 import sys
-from flask import Flask, g, request
+from flask import Flask, g, request, make_response
 
 from formula.formula import eval_formula, valid_formula
 
@@ -36,7 +36,7 @@ def list_cells():
     if cells:
         return cells
     else:
-        return "", 200
+        return make_response([], 200)
 
 
 def get_cell(id=None):
