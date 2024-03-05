@@ -1,6 +1,7 @@
+
 - [ ] **Part 1: On-premises storage**
 	- [ ] Cell management
-		- [ ] Creating cells **PUT** */cells/{id}*
+		- [x] Creating cells **PUT** */cells/{id}*
 			- [x] Basic functionality
 			- [x] Fully tested
 				- [x] Create a valid cell with a plain value
@@ -11,12 +12,12 @@
 			- [x] Reading plain values
 			- [x] Executing formulae & reading result
 			- [ ] Fully tested
-		- [ ] Deleting cells **DELETE** */cells/{id}*
+		- [x] Deleting cells **DELETE** */cells/{id}*
 			- [x] Basic functionality
-			- [ ] Fully tested
-		- [ ] Listing cells **GET** */cells*
+			- [x] Fully tested
+		- [x] Listing cells **GET** */cells*
 			- [x] Basic functionality
-			- [ ] Fully tested
+			- [x] Fully tested
 	- [ ] Cell formulae
 		- [x] $+$
 		- [x] $-$
