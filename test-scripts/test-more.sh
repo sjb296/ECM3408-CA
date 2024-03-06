@@ -334,7 +334,7 @@ fi
 ## Test [21]: read                                            #
 ###############################################################
 ID="C4"
-ANSWER="\"formula\":\"4.0\""
+ANSWER="\"formula\":\"4\""
 RESOURCE=$HOST/cells/$ID
 
 STATUS=$(curl -s -X GET -o body -w "%{http_code}" $RESOURCE)
