@@ -115,11 +115,13 @@ class SqliteHelper:
 
 
 class FirebaseHelper:
-    URL = os.environ["FBASE"]
+    URL = (
+        f"https://{os.environ['FBASE']}-default-rtdb.europe-west1.firebasedatabase.app/"
+    )
     params = '?orderBy="$key"&startAt="B1"&limitToFirst=1'
 
     def list_cells(self):
-        """Return a JSON list containing the coordinates of all cells#
+        """Return a JSON list containing the coordinates of all cells
         that have data in them"
 
         e.g. `["B1, "C6", ...]`
