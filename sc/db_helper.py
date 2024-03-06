@@ -176,7 +176,7 @@ class FirebaseHelper:
             return "", 400
 
         # Check if the record exists
-        params = f'?orderBy="$key"&startAt="{id}"&limitToFirst=1'
+        params = f'?orderBy="$key"&equalTo="{id}"&limitToFirst=1'
         exists = requests.get(self.URL + ".json" + params)
         if exists.ok and exists.json() != None:
             updated = True
