@@ -180,10 +180,10 @@ ID="B2"
 RESOURCE=$HOST/cells/$ID
 
 STATUS=$(curl -s -X DELETE -w "%{http_code}" $RESOURCE)
-if [ $STATUS == "200" ]; then
+if [ $STATUS == "204" ]; then
     echo "Test [11]: OK"; SCORE=$(expr $SCORE + 1)
 else
-    echo "Test [11]: FAIL (" $STATUS "!= 200 )"
+    echo "Test [11]: FAIL (" $STATUS "!= 204 )"
 fi
 
 ###############################################################

@@ -205,6 +205,6 @@ class FirebaseHelper:
         res = requests.delete(self.URL + f"{id}.json")
 
         if res.json() == None:  # deletion returns null
-            return "", 200
+            return "", 204
         else:
             return "", 500
