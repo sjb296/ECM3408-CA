@@ -1,7 +1,6 @@
 import sys
 from flask import Flask
 
-# from db.db import list_cells, get_cell, create_cell, delete_cell
 from db_helper import *
 
 if len(sys.argv) < 3 or (sys.argv[1] == "-r" and sys.argv[2] == "sqlite"):

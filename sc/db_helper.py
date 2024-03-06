@@ -1,7 +1,7 @@
 import sqlite3
 import os
 import requests
-from flask import g, request, make_response
+from flask import g, request
 
 from formula import eval_formula, valid_formula
 
