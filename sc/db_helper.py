@@ -141,15 +141,16 @@ class FirebaseHelper:
         the data stored in the cell
 
         e.g. `{"formula", "6"}`"""
-        params = f'?orderBy="$key"&startAt="{id}"&limitToFirst=1'
+        params = f'?orderBy="$key"&equalTo="{id}"&limitToFirst=1'
         res = requests.get(self.URL + ".json" + params)
-        formula = list(res.json().values())[0]
 
-        # print(res.json())
+        # print(self.URL + ".json" + params)
+        # print(id, res.json())
 
         if res.json() == None:
             return "", 404
         elif res.ok:
+            formula = list(res.json().values())[0]
             # print(f"Formula {formula}")
             if valid_formula(formula):
                 formula_result = eval_formula(self, formula)

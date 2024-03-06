@@ -9,6 +9,7 @@ elif sys.argv[1] == "-r" and sys.argv[2] == "firebase":
     db = FirebaseHelper()
 
 app = Flask(__name__)
+app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
 
 
 app.add_url_rule("/cells", view_func=db.list_cells, methods=["GET"])
