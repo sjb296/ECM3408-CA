@@ -25,11 +25,11 @@ def eval_arithmetic(db, formula):
 
     # Separate out the operands
     if CELL.match(operands[0]):
-        operands[0] = list(db.get_cell(operands[0]).values())[0]  # Unpack JSON
+        operands[0] = db.get_cell(operands[0])["formula"]  # Unpack JSON
     elif NUM.match(operands[0]):
         operands[0] = int(operands[0])
     if CELL.match(operands[1]):
-        operands[1] = list(db.get_cell(operands[1]).values())[0]  # Unpack JSON
+        operands[1] = db.get_cell(operands[1])["formula"]  # Unpack JSON
     elif NUM.match(operands[1]):
         operands[1] = int(operands[1])
 

@@ -46,7 +46,7 @@ class SqliteHelper:
         cur.execute("SELECT * FROM cells WHERE id=?", (id,))
         cell = cur.fetchone()
         if cell:
-            return {"formula": f"{eval_formula(self, cell[1])}"}
+            return {"id": cell[0], "formula": f"{eval_formula(self, cell[1])}"}
         else:
             return "", 404
 
@@ -157,7 +157,7 @@ class FirebaseHelper:
             else:
                 return "", 500
 
-            return {"formula": f"{formula_result}"}
+            return {"id": list(res.json().keys())[0], "formula": f"{formula_result}"}
         else:
             return "", 500
 
