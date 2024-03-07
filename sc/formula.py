@@ -22,20 +22,33 @@ def eval_formula(db, formula):
 
 
 def eval_arithmetic(db, formula):
-    """Returns the result of the arithmetic formula."""
+    """Recursively evaluates an arithmetic formula."""
     operator = re.search(r"[\*\+\-\/]", formula).group()
     operands = formula.split(operator)
     operands = [operand.strip() for operand in operands]  # remove ws
 
     # Separate out the operands
     if CELL.match(operands[0]):
-        operands[0] = db.get_cell(operands[0])["formula"]  # Unpack JSON
+        record = db.get_cell(operands[0])
+        if type(record) == tuple:  # error in access
+            operands[0] = 0
+        else:
+            operands[0] = record["formula"]  # Unpack JSON
     elif NUM.match(operands[0]):
         operands[0] = float(operands[0])
+    elif ARITHMETIC.match(operands[0]):
+        operands[0] = eval_arithmetic(db, operands[0])
+
     if CELL.match(operands[1]):
-        operands[1] = db.get_cell(operands[1])["formula"]  # Unpack JSON
+        record = db.get_cell(operands[1])
+        if type(record) == tuple:  # error in access
+            operands[1] = 0
+        else:
+            operands[1] = record["formula"]  # Unpack JSON
     elif NUM.match(operands[1]):
         operands[1] = float(operands[1])
+    elif ARITHMETIC.match(operands[1]):
+        operands[1] = eval_arithmetic(db, operands[1])
 
     # Perform the operation
     if operator == "+":

@@ -349,5 +349,24 @@ else
     echo "Test [21]: FAIL (" $STATUS "!= 200 )"
 fi
 
+###############################################################
+## Test [22]: read D4 (should return 0 because B2 is empty)   #
+###############################################################
+ID="D4"
+ANSWER="\"formula\":\"0\""
+RESOURCE=$HOST/cells/$ID
+
+STATUS=$(curl -s -X GET -o body -w "%{http_code}" $RESOURCE)
+if [ $STATUS == "200" ]; then
+    grep -q $ANSWER body
+    if [ $? -eq 0 ]; then
+        echo "Test [22]: OK"; SCORE=$(expr $SCORE + 1)
+    else
+        echo "Test [22]: FAIL"
+    fi
+else
+    echo "Test [22]: FAIL (" $STATUS "!= 200 )"
+fi
+
 
 echo "** Overall score:" $SCORE "**"

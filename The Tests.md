@@ -1,5 +1,5 @@
-- [ ] On my machine
-	- [ ] Sqlite
+- [x] On my machine
+	- [x] Sqlite
 		- [x] test10.sh
 			- [x] 1
 			- [x] 2
@@ -11,7 +11,7 @@
 			- [x] 8
 			- [x] 9
 			- [x] 10
-	- [ ] Firebase
+	- [x] Firebase
 		- [x] test10.sh
 			- [x] 1
 			- [x] 2
@@ -24,8 +24,8 @@
 			- [x] 9
 			- [x] 10
 
-- [ ] On the Blue machines
-	- [ ] Sqlite
+- [x] On the Blue machines
+	- [x] Sqlite
 		- [x] test10.sh
 			- [x] 1
 			- [x] 2
@@ -37,7 +37,7 @@
 			- [x] 8
 			- [x] 9
 			- [x] 10
-	- [ ] Firebase
+	- [x] Firebase
 		- [x] test10.sh
 			- [x] 1
 			- [x] 2
